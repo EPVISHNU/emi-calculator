@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+    \4crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="row">
+<div class="col-4"></div>
+<div style="height: 525px; width: 1000px; background-color:rgb(231, 230, 230); margin-left: -230px; margin-top: 100px;" class="col-4 border border-2 border shadow">
+    <div class="d-flex">
+        <img style="height: 150px;" type="icon" src="./images/weighing-scale-17-606993.webp" alt="" class="mt-3">
+       <div class="m-5">
+        <h1 style="color: rgb(198, 63, 63);">BMI</h1>
+        <H3 style="color: rgb(198, 63, 63);">Body Mass Index</H3>
+       </div>
+    </div>
+    <div style="height:300px" class="mt-1 m-2 bg-light border d-flex">
+
+
+
+        <!-- MAIN BODY -->
+
+   <div   class="m-5">
+    <div style="margin-top: 80px;">
+    <input type="radio" name="gender" value="male" checked> <b>Male</b>
+		<input type="radio" name="gender" value="female"> <b>Female</b>
+    </div>
+<br>
+<br><br><br>
+</div>
+
+
+
+<!--  -->
+<div  class="mt-4 ">
+   
+    <p><b>HEIGHT</b></p>
+    <div class="d-flex">
+        <input type="text" style="width: 200px;" class="form-control" name="" id="height" placeholder="in cm">
+    
+</div>
+
+
+<!--  -->
+<br><br>
+<p class="mt-1"><b>WEIGHT</b></p>
+<input type="text" class="form-control" name="" id="weight">
+</div>
+<br><br><br>
+
+<div style="margin-left: 130px; width: 370px;" >
+   <div style="height: 150px;" class=" mt-5" >
+<h1 class="text-dark" id="result"></h1>
+   </div>
+
+    <div style="margin-top: 0px;" class="text-center">
+        <button onclick="calculateBMI()" style="width: 150px;" class="btn btn-primary border border-light text-light shadow mt-4">Check</button></div>
+</div>
+   </div>
+    </div>
+<!-- script -->
+<script>
+function calculateBMI(){
+			var weight = document.getElementById("weight").value;
+			var height = document.getElementById("height").value;
+			var gender = document.querySelector('input[name="gender"]:checked').value;
+			var bmi = weight / ((height/100) * (height/100));
+			bmi = bmi.toFixed(2);
+			var result = document.getElementById("result");
+			if(gender == "male"){
+				if(bmi < 18.5){
+					result.innerHTML = "Your BMI is " + bmi + ". You are underweight.";
+				}
+				else if(bmi >= 18.5 && bmi <= 24.9){
+					result.innerHTML = "Your BMI is " + bmi + ". You are healthy.";
+				}
+				else if(bmi >= 25 && bmi <= 29.9){
+					result.innerHTML = "Your BMI is " + bmi + ". You are overweight.";
+				}
+				else{
+					result.innerHTML = "Your BMI is " + bmi + ". You are obese.";
+				}
+			}
+			else{
+				if(bmi < 18.5){
+					result.innerHTML = "Your BMI is " + bmi + ". You are underweight.";
+				}
+				else if(bmi >= 18.5 && bmi <= 24.9){
+					result.innerHTML = "Your BMI is " + bmi + ". You are healthy.";
+				}
+				else if(bmi >= 25 && bmi <= 29.9){
+					result.innerHTML = "Your BMI is " + bmi + ". You are overweight.";
+				}
+				else{
+					result.innerHTML = "Your BMI is " + bmi + ". You are obese.";
+				}
+			}
+		}
+</script>
+
+
+
+</div>
+<div class="col-4"></div>
+</div>
+</body>
+</html>
